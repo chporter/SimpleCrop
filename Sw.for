@@ -102,9 +102,9 @@
         ST  = DP * STp * 10.0  
         SWC_INIT = SWC
 
-        CALL RUNOFF(POTINF, CN, ROF, 'INITIAL')
+        CALL RUNOFF(POTINF, CN, ROF, 'INITIAL   ')
         CALL STRESS(SWC, DP, FC, ST, WP, SWFAC1, SWFAC2, 
-     &                'INITIAL')
+     &                'INITIAL   ')
 
 !     Keep totals for water balance
         TRAIN = 0.0
@@ -131,7 +131,7 @@
         CALL DRAINE(SWC, FC, DRNp, DRN)
 
         IF (POTINF. GT. 0.0) THEN
-          CALL RUNOFF(POTINF, CN, ROF, 'RATE')
+          CALL RUNOFF(POTINF, CN, ROF, 'RATE      ')
           INF = POTINF - ROF
         ELSE
           ROF = 0.0
@@ -172,13 +172,13 @@
         TDRN = TDRN + DRN
         TROF = TROF + ROF
 
-        CALL STRESS(SWC, DP, FC, ST, WP, SWFAC1, SWFAC2, 'INTEG')
+        CALL STRESS(SWC, DP, FC, ST, WP, SWFAC1, SWFAC2, 'INTEG     ')
 
 !************************************************************************
 !************************************************************************
 !     OUTPUT
 !************************************************************************
-      ELSEIF (INDEX(DYN,'OUTPUT') .NE. 0) THEN
+      ELSEIF (INDEX(DYN,'OUTPUT    ') .NE. 0) THEN
 !************************************************************************
         WRITE(10,40) DOY, SRAD, TMAX, TMIN, RAIN, IRR, ROF, INF, DRN, 
      &    ETP, ESa, EPa, SWC, SWC/DP, SWFAC1, SWFAC2

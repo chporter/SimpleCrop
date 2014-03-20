@@ -47,17 +47,17 @@ C*************************************************************************
 !************************************************************************
       CALL OPENF(DOYP, FROP)
       
-      CALL WEATHR(SRAD,TMAX,TMIN,RAIN,PAR,'INITIAL')
+      CALL WEATHR(SRAD,TMAX,TMIN,RAIN,PAR,'INITIAL   ')
 
       CALL SW(
      &    DOY, LAI, RAIN, SRAD, TMAX, TMIN,               !Input
      &    SWFAC1, SWFAC2,                                 !Output
-     &    'INITIAL')                                      !Control
+     &    'INITIAL   ')                                   !Control
 
       CALL PLANT(DOY, endsim, TMAX, TMIN,                 !Input
      &    PAR, SWFAC1, SWFAC2,                            !Input
      &    LAI,                                            !Output
-     &    'INITIAL')                                      !Control
+     &    'INITIAL   ')                                   !Control
 
 !-----------------------------------------------------------------------
 !     DAILY TIME LOOP 
@@ -65,7 +65,7 @@ C*************************************************************************
       DO 500 DOY = 0,1000
         IF (DOY .NE. 0) THEN
 
-          CALL WEATHR(SRAD,TMAX,TMIN,RAIN,PAR,'RATE')
+          CALL WEATHR(SRAD,TMAX,TMIN,RAIN,PAR,'RATE      ')
 
 
 !************************************************************************
@@ -75,13 +75,13 @@ C*************************************************************************
           CALL SW(
      &      DOY, LAI, RAIN, SRAD, TMAX, TMIN,             !Input
      &      SWFAC1, SWFAC2,                               !Output
-     &      'RATE')                                       !Control
+     &      'RATE      ')                                 !Control
 
           IF (DOY .GT. DOYP) THEN
             CALL PLANT(DOY, endsim,TMAX,TMIN,             !Input
      &        PAR, SWFAC1, SWFAC2,                        !Input
      &        LAI,                                        !Output
-     &        'RATE')                                     !Control
+     &        'RATE      ')                               !Control
           ENDIF
 
 !************************************************************************
@@ -91,13 +91,13 @@ C*************************************************************************
           CALL SW(
      &      DOY, LAI, RAIN, SRAD, TMAX, TMIN,             !Input
      &      SWFAC1, SWFAC2,                               !Output
-     &      'INTEG')                                      !Control
+     &      'INTEG     ')                                 !Control
 
           IF (DOY .GT. DOYP) THEN
             CALL PLANT(DOY, endsim, TMAX,TMIN,            !Input
      &        PAR, SWFAC1, SWFAC2,                        !Input
      &        LAI,                                        !Output
-     &        'INTEG')                                    !Control
+     &        'INTEG     ')                               !Control
           ENDIF
 
         ENDIF
@@ -114,13 +114,13 @@ C*************************************************************************
           CALL SW(
      &      DOY, LAI, RAIN, SRAD, TMAX, TMIN,             !Input
      &      SWFAC1, SWFAC2,                               !Output
-     &      'OUTPUT')                                     !Control
+     &      'OUTPUT    ')                                 !Control
 
           IF (DOY .GE. DOYP) THEN
             CALL PLANT(DOY, endsim, TMAX,TMIN,            !Input
      &        PAR, SWFAC1, SWFAC2,                        !Input
      &        LAI,                                        !Output
-     &        'OUTPUT')                                   !Control
+     &        'OUTPUT    ')                               !Control
           ENDIF
 
         ENDIF
@@ -136,17 +136,17 @@ C*************************************************************************
 !************************************************************************
 !     CLOSE FILES AND WRITE SUMMARY REPORTS
 !************************************************************************
-      CALL WEATHR(SRAD,TMAX,TMIN,RAIN,PAR,'CLOSE') 
+      CALL WEATHR(SRAD,TMAX,TMIN,RAIN,PAR,'CLOSE     ') 
 
       CALL SW(
      &  DOY, LAI, RAIN, SRAD, TMAX, TMIN,                 !Input
      &  SWFAC1, SWFAC2,                                   !Output
-     &  'CLOSE')                                          !Control
+     &  'CLOSE     ')                                     !Control
       
       CALL PLANT(DOY, endsim, TMAX,TMIN,                  !Input    
      &    PAR, SWFAC1, SWFAC2,                            !Input
      &    LAI,                                            !Output
-     &    'CLOSE') 
+     &    'CLOSE     ') 
 
       PAUSE 'End of Program - hit enter key to end'
 
