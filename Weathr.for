@@ -18,7 +18,7 @@
 
 !-----------------------------------------------------------------------  
       IMPLICIT NONE 
-
+      SAVE
       REAL SRAD,TMAX,TMIN,RAIN,PAR
       INTEGER DATE
       CHARACTER*10 DYN

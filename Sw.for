@@ -62,6 +62,7 @@
 
 !-----------------------------------------------------------------------
       IMPLICIT NONE 
+      SAVE
 
       INTEGER   DATE, DOY
       REAL      SRAD,TMAX,TMIN,RAIN,SWC,INF,IRR,ROF,ESa,EPa,DRNp
@@ -219,6 +220,7 @@
 
 !-----------------------------------------------------------------------
       IMPLICIT NONE
+      SAVE
       REAL SWC, FC, DRN, DRNp
 !-----------------------------------------------------------------------
 
@@ -247,6 +249,7 @@
 
 !-----------------------------------------------------------------------
       IMPLICIT NONE
+      SAVE
       REAL a, SWC, WP, FC, ESa, ESp
 !-----------------------------------------------------------------------
       IF (SWC .LT. WP) THEN
@@ -285,7 +288,7 @@ C
       
 !-----------------------------------------------------------------------
       IMPLICIT NONE  
-       
+      SAVE
       REAL    ALB,EEQ,f,Tmed,LAI
       REAL TMAX, TMIN, SRAD, ETP  
 
@@ -327,6 +330,7 @@ C
 
 !-----------------------------------------------------------------------
       IMPLICIT NONE  
+      SAVE
       CHARACTER*10 DYN
       REAL S, CN
       REAL POTINF, ROF 
@@ -374,6 +378,7 @@ C
 
 !-----------------------------------------------------------------------  
       IMPLICIT NONE
+      SAVE
       CHARACTER*10 DYN
       REAL FC, ST, SWC, WP, SWFAC2, SWFAC1
       REAL DP, DWT, WTABLE, THE
@@ -456,6 +461,7 @@ C
 
 !-----------------------------------------------------------------------
       IMPLICIT NONE
+      SAVE
       INTEGER, PARAMETER :: LSWC = 21
       REAL SWC, SWC_INIT
       REAL TDRN, TEPA, TESA, TIRR, TRAIN, TROF
